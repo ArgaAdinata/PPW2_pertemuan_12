@@ -29,6 +29,10 @@ Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
 Route::get('/buku/photo/{filename}', [BukuController::class, 'getPhoto'])->name('buku.poto');
 Route::get('/buku/show/{id}', [BukuController::class, 'show'])->name('buku.show');
 
+Route::get('/buku-api', function () {
+    return view('buku.index-api');
+})->name('buku.api');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');
     Route::post('/buku', [BukuController::class, 'store'])->name('buku.store');
